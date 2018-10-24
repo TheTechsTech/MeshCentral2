@@ -52,14 +52,16 @@ else
     sed -i "s#\"pass\": \"smtppass!\",#\"pass\": \"\",#" meshcentral-data/config.json  
 fi
 
+if [ "$DB" != "netdb" ] && ! [ -f mongodbready ]
+then
+	sed -i "s#\"settings\": {#\"settings\": {\n\t\"MongoDb\": \"$MONGODB\",\n\t\"MongoDbCol\": \"$MONGODBCOL\",#" config.json   
+	node meshcentral --dbexport
+	node meshcentral --mongodb mongodb://127.0.0.1:27017/meshcentral --dbimport
+	touch mongodbready
+fi
+
 if [ "$DB" != "netdb" ]
-    if ! [ -f mongodbready ]
-	then
-        sed -i "s#\"settings\": {#\"settings\": {\n\t\"MongoDb\": \"$MONGODB\",\n\t\"MongoDbCol\": \"$MONGODBCOL\",#" meshcentral-data/config.json   
-        node meshcentral --dbexport
-        node meshcentral --mongodb mongodb://127.0.0.1:27017/meshcentral --dbimport
-        touch mongodbready
-    fi
+then
     service mongod start
 fi
 
