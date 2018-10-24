@@ -13,7 +13,7 @@ export MONGODBCOL
 
 su - meshserver
 cd /home/meshserver/
-npm install MeshCentral
+npm install meshcentral
 
 sed -i "s#: 443,#: $PORT,#" meshcentral-data/config.json
 sed -i "s#: 80,#: $REDIRPORT,#" meshcentral-data/config.json
