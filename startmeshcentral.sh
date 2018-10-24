@@ -54,7 +54,7 @@ fi
 
 if [ "$DB" != "netdb" ] && ! [ -f mongodbready ]
 then
-	sed -i "s#\"settings\": {#\"settings\": {\n\t\"MongoDb\": \"$MONGODB\",\n\t\"MongoDbCol\": \"$MONGODBCOL\",#" config.json   
+	sed -i "s#\"settings\": {#\"settings\": {\n\t\"MongoDb\": \"$MONGODB\",\n\t\"MongoDbCol\": \"$MONGODBCOL\",#" meshcentral-data/config.json   
 	node meshcentral --dbexport
 	node meshcentral --mongodb mongodb://127.0.0.1:27017/meshcentral --dbimport
 	touch mongodbready
