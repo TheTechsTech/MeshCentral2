@@ -19,6 +19,6 @@
         "from": "mail@host",
         "user": "smtp@user",
         "pass": "smtppass!",
-        "tls": true
+        "tls": false
 	}
 }
