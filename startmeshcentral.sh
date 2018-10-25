@@ -22,7 +22,7 @@ sed -i "s#: 4443,#: $MPSPORT,#" meshcentral-data/config.json
 if [ "$EMAIL" != 'mail@host' ]
 then
     sed -i "s#\"email\": \"mail@host\",#\"email\": \"$EMAIL\",#" meshcentral-data/config.json
-    sed -i "s#\"from\": \"mail@host\",#\"from\": \"$EMAIL\"#," meshcentral-data/config.json
+    sed -i "s#\"from\": \"mail@host\",#\"from\": \"$EMAIL\",#" meshcentral-data/config.json
 else
     sed -i "s#\"email\": \"mail@host\",#\"email\": \"support@$HOSTNAME\",#" meshcentral-data/config.json
     sed -i "s#\"from\": \"mail@host\",#\"from\": \"support@$HOSTNAME\",#" meshcentral-data/config.json
@@ -30,7 +30,7 @@ fi
 
 if [ "$HOST" != 'host.ltd' ] && [ "$SMTP" != 'smtp.host.ltd' ]
 then
-    sed -i "s#\"names\": \"host.ltd,smtp.host.ltd\",#\"names\": \"$HOST, $SMTP\",#" meshcentral-data/config.json
+    sed -i "s#\"names\": \"host.ltd,smtp.host.ltd\",#\"names\": \"$HOST,$SMTP\",#" meshcentral-data/config.json
 elif [ "$HOST" != 'host.ltd' ]
 then
     sed -i "s#\"names\": \"host.ltd,smtp.host.ltd\",#\"names\": \"$HOST\",#" meshcentral-data/config.json

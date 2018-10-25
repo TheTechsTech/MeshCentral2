@@ -17,7 +17,7 @@ RUN su - meshserver \
 ENV PORT 443  
 ENV REDIRPORT 80  
 ENV MPSPORT 4443
-ENV EMAIL mail@
+ENV EMAIL mail@host
 ENV HOST host.ltd
 ENV SMTP smtp.host.ltd
 ENV USER smtp@user

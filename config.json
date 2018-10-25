@@ -9,7 +9,7 @@
 	},
     "letsencrypt": {
         "email": "mail@host",
-        "names": "host.ltd,smtp.host.ltd",
+        "names": "host.ltd",
         "rsaKeySize": 3072,
         "production": true
 	},
