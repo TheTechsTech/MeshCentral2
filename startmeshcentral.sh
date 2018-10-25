@@ -30,9 +30,9 @@ fi
 
 if [ "$HOST" != 'host.ltd' ]
 then
-    sed -i "s#\"names\": \"host.ltd,smtp.host.ltd\",#\"names\": \"$HOST\",#" meshcentral-data/config.json
+    sed -i "s#\"names\": \"host.ltd\",#\"names\": \"$HOST\",#" meshcentral-data/config.json
 else
-    sed -i "s#\"names\": \"host.ltd,smtp.host.ltd\",#\"names\": \"$HOSTNAME\",#" meshcentral-data/config.json
+    sed -i "s#\"names\": \"host.ltd\",#\"names\": \"$HOSTNAME\",#" meshcentral-data/config.json
 fi
  
 if [ "$SMTP" != 'smtp.host.ltd' ]
