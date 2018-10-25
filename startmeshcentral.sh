@@ -28,10 +28,7 @@ else
     sed -i "s#\"from\": \"mail@host\",#\"from\": \"support@$HOSTNAME\",#" meshcentral-data/config.json
 fi
 
-if [ "$HOST" != 'host.ltd' ] && [ "$SMTP" != 'smtp.host.ltd' ]
-then
-    sed -i "s#\"names\": \"host.ltd,smtp.host.ltd\",#\"names\": \"$HOST,$SMTP\",#" meshcentral-data/config.json
-elif [ "$HOST" != 'host.ltd' ]
+if [ "$HOST" != 'host.ltd' ]
 then
     sed -i "s#\"names\": \"host.ltd,smtp.host.ltd\",#\"names\": \"$HOST\",#" meshcentral-data/config.json
 else
