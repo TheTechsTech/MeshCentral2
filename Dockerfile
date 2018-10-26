@@ -6,8 +6,7 @@ RUN apt-get update && apt-get -y install mongodb sudo
 COPY startmeshcentral.sh /
 RUN adduser --quiet meshserver \
     && mkdir -p /home/meshserver/meshcentral-data \
-    && chmod +x /startmeshcentral.sh \
-	&& mv -f /startmeshcentral.sh /home/meshserver/meshcentral-data/startmeshcentral.sh
+    && chmod +x /startmeshcentral.sh
 
 COPY package.json /home/meshserver/
 COPY config.json /home/meshserver/meshcentral-data/
@@ -29,4 +28,4 @@ ENV MONGODBCOL "meshcentral"
 
 EXPOSE 25 80 443 4443 27017 27018
 
-ENTRYPOINT ["/home/meshserver/meshcentral-data/startmeshcentral.sh"]
+ENTRYPOINT ["/startmeshcentral.sh"]
